@@ -1,0 +1,16 @@
+/* The Gradient — Software Development mode
+   Compact, single-row workspace intro. No hero, no scroll — this docks at the
+   top of the chat and gets out of the way the moment a conversation starts. */
+.mode-software{--software-accent:#7c8cff}
+.software-start-panel{max-width:960px;margin:18px auto 6px;padding:14px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;border:1px solid var(--border);border-radius:16px;background:var(--surface);box-shadow:0 1px 0 rgba(255,255,255,.02) inset}
+.software-start-mark{font:700 15px/1 "JetBrains Mono",monospace;color:var(--software-accent);background:rgba(124,140,255,.12);border-radius:10px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;flex:none}
+.software-start-copy{display:flex;flex-direction:column;gap:2px;margin-right:auto;min-width:200px}
+.software-start-copy b{font-size:13.5px;letter-spacing:-.01em}
+.software-start-copy span{font-size:12px;color:#8490a8}
+.software-depth-toggle{display:flex;border:1px solid var(--border);border-radius:999px;padding:3px;background:var(--surface-2);flex:none}
+.software-depth-pill{border:0;background:transparent;color:#8490a8;font-size:12px;font-weight:600;border-radius:999px;padding:6px 12px;cursor:pointer}
+.software-depth-pill.active{background:var(--software-accent);color:#fff}
+.software-start-suggestions{display:flex;gap:6px;flex-wrap:wrap}
+.software-start-suggestions button{border:1px solid var(--border);background:var(--surface-2);color:#9aa7bd;border-radius:999px;padding:6px 12px;font-size:12px;cursor:pointer;white-space:nowrap}
+.software-start-suggestions button:hover{color:#fff;border-color:var(--software-accent)}
+@media(max-width:760px){.software-start-panel{margin:12px 10px 4px}.software-start-copy span{display:none}}

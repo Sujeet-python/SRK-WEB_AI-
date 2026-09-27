@@ -1,0 +1,56 @@
+/* The Gradient 3.2.2 — responsive fit layer
+   Keeps the established 3.2 shell intact while making dense mode pages usable at
+   laptop, tablet and narrow widths. No mode changes are introduced here. */
+html,body,#app{min-width:0;min-height:0}
+.main{overflow:hidden}
+.gradient-mode-stage{min-width:0;min-height:0}
+.gradient-mode-stage > .v26-page{width:100%;max-width:none;min-width:0;min-height:0;box-sizing:border-box;overflow:auto;overscroll-behavior:contain}
+.gradient-mode-stage .v26-page-header{min-width:0}
+.gradient-mode-stage .v26-page-header > div:first-child{min-width:0}
+.gradient-mode-stage .v26-page-header h1{font-size:clamp(24px,2.6vw,36px);line-height:1.08;overflow-wrap:anywhere}
+.gradient-mode-stage .v26-page-header p{font-size:12px;max-width:66ch}
+
+/* Imagine: action controls must never disappear below the fold. */
+.imagine-stage .imagine-page{padding:16px clamp(14px,2.2vw,28px)!important;gap:12px}
+.imagine-stage .imagine-layout{width:100%;max-width:none;min-height:0;flex:1 1 auto;grid-template-columns:minmax(350px,410px) minmax(0,1fr);gap:12px}
+.imagine-stage .imagine-controls{min-height:0;height:auto;max-height:min(72vh,760px);overflow:auto;overscroll-behavior:contain;padding-bottom:8px}
+.imagine-stage .imagine-controls .v26-card-title{position:sticky;top:0;z-index:3;background:var(--g32-surface);backdrop-filter:blur(12px)}
+.imagine-stage .imagine-controls .v26-field textarea{min-height:150px;max-height:38vh;resize:vertical}
+.imagine-stage .imagine-controls .v26-field input,.imagine-stage .imagine-controls .v26-field select,.imagine-stage .imagine-controls .v26-field textarea{font-size:11px;padding:8px 9px}
+.imagine-stage .imagine-controls .v26-grid-2{grid-template-columns:minmax(0,1.25fr) minmax(0,.9fr)}
+.imagine-stage .imagine-controls .v26-chip{font-size:10px;padding:5px 8px}
+.imagine-stage .imagine-actions{position:sticky;bottom:0;z-index:4;margin-top:2px;padding:10px 0 calc(10px + env(safe-area-inset-bottom));background:linear-gradient(to top,var(--g32-surface) 78%,transparent);backdrop-filter:blur(8px);border-top:1px solid color-mix(in srgb,var(--g32-border) 65%,transparent)}
+.imagine-stage .imagine-actions .v26-btn{white-space:nowrap;min-height:36px}
+.imagine-stage .imagine-tip{padding-bottom:4px}
+.imagine-stage .imagine-result{min-width:0;min-height:0;overflow:hidden}
+.imagine-stage .imagine-output{min-height:0;height:auto;flex:1 1 auto;overflow:auto;overscroll-behavior:contain;padding:14px}
+.imagine-stage .imagine-gallery-v26{grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));align-items:start}
+.imagine-stage .imagine-image-card img{max-height:min(64vh,720px)}
+.imagine-stage .imagine-history-card{flex:0 0 auto;max-height:112px;overflow:hidden}
+.imagine-stage .imagine-history{overflow:auto}
+
+/* Documents and Canvas keep their existing structures, but their outer pages always scroll. */
+.documents-stage .v26-page{overflow:auto}
+.documents-stage .documents-workspace{min-width:0}
+.canvas-stage{overflow:hidden!important}
+.canvas-stage .canvas-app{min-width:0;min-height:0;overflow:hidden}
+
+@media(max-width:1100px){
+  .imagine-stage .imagine-layout{grid-template-columns:minmax(320px,380px) minmax(0,1fr)}
+}
+@media(max-width:900px){
+  .gradient-mode-stage > .v26-page{overflow:auto}
+  .imagine-stage .imagine-layout{grid-template-columns:1fr;display:grid;overflow:visible}
+  .imagine-stage .imagine-controls{max-height:unset;overflow:visible}
+  .imagine-stage .imagine-result{min-height:420px}
+  .imagine-stage .imagine-actions{position:sticky}
+  .imagine-stage .imagine-history-card{max-height:96px}
+}
+@media(max-width:620px){
+  .imagine-stage .imagine-page{padding:12px 10px!important}
+  .imagine-stage .imagine-layout{grid-template-columns:1fr}
+  .imagine-stage .imagine-controls .v26-grid-2{grid-template-columns:1fr}
+  .imagine-stage .imagine-controls .v26-field textarea{min-height:125px;max-height:32vh}
+  .imagine-stage .imagine-actions{flex-wrap:wrap}
+  .imagine-stage .imagine-actions .primary{margin-left:0;flex:1 1 120px}
+}

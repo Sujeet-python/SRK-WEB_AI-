@@ -1,0 +1,7 @@
+/* Software Development — 3.2 */
+.v32-software .header-tools .icon-btn#canvas-btn,.v32-software .header-tools .icon-btn#pipeline-btn,.v32-software .header-tools .icon-btn#compare-btn{display:none}
+.v32-software .header-tools{gap:4px}
+.v32-software .software-start-panel{border-color:var(--g32-border);background:var(--g32-surface)}
+.v32-software .software-depth-toggle{border-color:var(--g32-border);background:var(--g32-surface-2)}
+.v32-software .software-start-suggestions button{border-color:var(--g32-border);background:var(--g32-surface-2);color:var(--g32-muted)}
+.v32-software .software-start-suggestions button:hover{border-color:var(--g32-accent);color:var(--g32-text)}

@@ -1,0 +1,24 @@
+/* Imagine — 3.2: large, image-first, no cramped tab */
+.imagine-stage{width:100%;height:100%;min-height:0!important;overflow:hidden!important;background:var(--g32-bg)!important}
+.imagine-stage .v26-page{max-width:none;width:100%;height:100%;min-height:0;padding:26px clamp(18px,3vw,36px)!important;gap:18px}
+.imagine-stage .v26-page-header{width:min(100%,var(--g32-content));max-width:var(--g32-content);margin:0 auto}
+.imagine-stage .v26-page-header h1{font-size:clamp(30px,3.3vw,46px)}
+.imagine-stage .imagine-layout{width:min(100%,var(--g32-content));max-width:var(--g32-content);margin:0 auto;display:grid;grid-template-columns:minmax(300px,360px) minmax(0,1fr);gap:18px;flex:1;min-height:0}
+.imagine-stage .imagine-controls,.imagine-stage .imagine-result{min-height:0;overflow:hidden}
+.imagine-stage .imagine-controls{display:flex;flex-direction:column}
+.imagine-stage .imagine-controls textarea{min-height:210px;flex:0 0 auto}
+.imagine-stage .imagine-result{display:flex;flex-direction:column}
+.imagine-stage .imagine-output{min-height:0;height:100%;flex:1;overflow:auto;padding:24px}
+.imagine-stage .imagine-gallery-v26{width:100%;height:100%;display:grid;place-items:center;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:18px}
+.imagine-stage .imagine-image-card{width:100%;max-height:100%;display:flex;flex-direction:column;overflow:hidden}
+.imagine-stage .imagine-image-card img{width:100%;height:auto;max-height:min(68vh,680px);object-fit:contain;display:block;background:#0a0d14;border-radius:12px}
+.imagine-stage .imagine-image-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}
+.imagine-stage .imagine-history-card{width:min(100%,var(--g32-content));max-width:var(--g32-content);margin:0 auto}
+.imagine-stage .imagine-history{min-height:72px;display:flex;align-items:center}
+@media(max-width:980px){.imagine-stage .imagine-layout{grid-template-columns:1fr}.imagine-stage .imagine-controls{max-height:none}.imagine-stage .imagine-output{min-height:420px}.imagine-stage .imagine-gallery-v26{grid-template-columns:1fr}}
+.imagine-stage .v26-card,.imagine-stage .imagine-controls,.imagine-stage .imagine-result,.imagine-stage .imagine-history-card{background:var(--g32-surface)!important;border-color:var(--g32-border)!important;color:var(--g32-text)!important;box-shadow:0 18px 55px rgba(0,0,0,.12)}
+.imagine-stage .imagine-controls textarea,.imagine-stage select{background:var(--g32-surface-2)!important;border-color:var(--g32-border)!important;color:var(--g32-text)!important}
+.imagine-stage .imagine-chip{background:var(--g32-surface-2);border-color:var(--g32-border);color:var(--g32-muted)}
+.imagine-stage .imagine-chip.active{background:color-mix(in srgb,var(--g32-accent) 12%,transparent);border-color:color-mix(in srgb,var(--g32-accent) 24%,transparent);color:var(--g32-text)}
+.imagine-stage .imagine-output{background:radial-gradient(circle at 50% 0,color-mix(in srgb,var(--g32-accent) 8%,transparent),transparent 50%),var(--g32-bg)}
+.imagine-stage .imagine-result img{background:var(--g32-bg)}

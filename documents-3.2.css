@@ -1,0 +1,15 @@
+/* Documents — 3.2 */
+.documents-stage{width:100%;height:100%;min-height:0!important;overflow:auto!important;background:var(--g32-bg)!important;color:var(--g32-text)!important}
+.documents-stage .v26-page{width:min(100%,var(--g32-content));margin:0 auto;min-height:100%;box-sizing:border-box;padding:28px clamp(18px,3vw,36px)!important}
+.documents-stage .documents-workspace{display:flex;flex-direction:column;gap:16px}
+.documents-stage .document-format-row{grid-template-columns:repeat(4,minmax(0,1fr))}
+.documents-stage .document-format{min-height:130px;transition:.16s ease}
+.documents-stage .document-format:hover{transform:translateY(-1px)}
+.documents-stage .documents-action-row{padding-top:8px;border-top:1px solid var(--g32-border)}
+.documents-stage .documents-features{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:900px){.documents-stage .document-format-row{grid-template-columns:repeat(2,minmax(0,1fr))}.documents-stage .documents-features{grid-template-columns:1fr}}
+@media(max-width:560px){.documents-stage .document-format-row{grid-template-columns:1fr}}
+.documents-stage .v26-card,.documents-stage .documents-workspace,.documents-stage .documents-prompt-card,.documents-stage .document-type-card{background:var(--g32-surface)!important;border-color:var(--g32-border)!important;color:var(--g32-text)!important;box-shadow:0 16px 48px rgba(0,0,0,.10)}
+.documents-stage .document-type-card small,.documents-stage .v26-page-header p{color:var(--g32-muted)!important}
+.documents-stage .documents-prompt-card textarea{background:var(--g32-surface-2)!important;border-color:var(--g32-border)!important;color:var(--g32-text)!important}
+.documents-stage .document-type-card span{background:color-mix(in srgb,var(--g32-accent) 12%,transparent);color:var(--g32-accent)}

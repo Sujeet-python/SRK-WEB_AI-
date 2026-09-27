@@ -1,0 +1,20 @@
+{
+  "name": "The Gradient 3.6 — AI Engineering Workspace",
+  "short_name": "Gradient 3.6",
+  "version": "3.6.0",
+  "description": "A mode-first AI engineering workspace for software development, image generation, visual canvas design and professional documents.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b0e14",
+  "theme_color": "#0b0e14",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230b0e14'/%3E%3Cpath d='M12 3.5 19 10 12 20.5 5 10 12 3.5Z' fill='none' stroke='%237c8cff' stroke-width='1.8' stroke-linejoin='round'/%3E%3Cpath d='M12 3.5v17M5 10h14' stroke='%235eb4de' stroke-width='1.4'/%3E%3C/svg%3E",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

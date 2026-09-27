@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-accent="indigo" data-density="cozy" data-width="cozy">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="color-scheme" content="dark light" />
+<meta name="theme-color" content="#07090d" />
+<link rel="manifest" href="manifest.json" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="The Gradient" />
+<title>The Gradient — Private AI workspace</title>
+<meta name="description" content="The Gradient is a private, browser-first AI workspace for thoughtful chats, code, research, images, documents and editable artifacts." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="studio.css" />
+<link rel="stylesheet" href="software-mode.css" />
+<link rel="stylesheet" href="imagine-mode.css" />
+<link rel="stylesheet" href="canvas-mode.css" />
+<link rel="stylesheet" href="documents-mode.css" />
+<link rel="stylesheet" href="v26.css" />
+<link rel="stylesheet" href="v32-shell.css" />
+<link rel="stylesheet" href="v32-fit.css" />
+<link rel="stylesheet" href="software-3.2.css" />
+<link rel="stylesheet" href="imagine-3.2.css" />
+<link rel="stylesheet" href="canvas-3.2.css" />
+<link rel="stylesheet" href="documents-3.2.css" />
+<link rel="stylesheet" href="v369-workspaces.css" />
+<link rel="stylesheet" href="v4-polish.css" />
+<link rel="stylesheet" href="v41-world-class.css" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 3.5 19 10 12 20.5 5 10 12 3.5Z' fill='none' stroke='%237a8dff' stroke-width='1.8' stroke-linejoin='round'/><path d='M12 3.5v17' stroke='%235eb4de' stroke-width='1.6'/><path d='M5 10h14' stroke='%23d8a26f' stroke-width='1.6'/></svg>" />
+</head>
+<body>
+
+<div class="net-banner" id="net-banner" role="status">You're offline. Messages will fail until the connection returns.</div>
+
+<div id="app">
+  <div class="sidebar-scrim" id="sidebar-scrim"></div>
+
+  <!-- ==================== SIDEBAR ==================== -->
+  <aside class="sidebar" id="sidebar" aria-label="Conversations">
+    <div class="sidebar-header">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"><span class="ico" data-icon="logo"></span></div>
+        <span class="brand-name">The Gradient</span>
+  <span class="brand-ver" id="brand-ver">3.6</span>
+      </div>
+      <button class="icon-btn" id="collapse-btn" aria-label="Hide sidebar" title="Hide sidebar (Ctrl+B)">
+        <span class="ico" data-icon="panel"></span>
+      </button>
+    </div>
+
+    <div class="sidebar-actions">
+      <button class="new-chat-btn" id="new-chat-btn"><span class="ico" data-icon="plus"></span>New conversation</button>
+      <button class="icon-btn" id="palette-btn" aria-label="Open command palette" title="Command palette (Ctrl+K)">
+        <span class="ico" data-icon="command"></span>
+      </button>
+    </div>
+
+    <div class="search-box">
+      <span class="ico" data-icon="search"></span>
+      <input type="search" id="sidebar-search" placeholder="Search chats and messages" aria-label="Search conversations" />
+    </div>
+
+    <div class="filter-row" id="filter-row" role="tablist" aria-label="Filter conversations">
+      <button class="filter-chip active" data-filter="all" role="tab">All</button>
+      <button class="filter-chip" data-filter="pinned" role="tab">Pinned</button>
+      <button class="filter-chip" data-filter="archived" role="tab">Archived</button>
+    </div>
+
+    <div class="project-rail" id="project-rail" aria-label="Projects"></div>
+
+    <nav class="history" id="history" aria-label="Conversation history"></nav>
+
+    <div class="sidebar-footer">
+      <div class="storage-meter" id="storage-meter">
+        <span id="storage-text">No chats stored yet</span>
+        <div class="meter-track"><div class="meter-fill" id="storage-fill"></div></div>
+      </div>
+      <div class="mode-sidebar-nav" aria-label="Workspace modes">
+        <div class="mode-sidebar-label">WORKSPACES</div>
+        <button class="side-link mode-sidebar-btn" data-mode="learn"><span class="mode-dot">✎</span>Learn</button>
+        <button class="side-link mode-sidebar-btn active" data-mode="software"><span class="mode-dot">⌘</span>Software Development</button>
+        <button class="side-link mode-sidebar-btn" data-mode="imagine"><span class="mode-dot">✦</span>Imagine</button>
+        <button class="side-link mode-sidebar-btn" data-mode="canvas"><span class="mode-dot">◇</span>Canvas</button>
+        <button class="side-link mode-sidebar-btn" data-mode="documents"><span class="mode-dot">▤</span>Documents</button>
+      </div>
+      <div class="v26-legacy-hooks" aria-hidden="true">
+        <button class="side-link" id="pipelines-entry-btn" type="button"></button>
+        <button class="side-link" id="studio-entry-btn" type="button"></button>
+        <button class="side-link" id="agent-entry-btn" type="button"></button>
+        <button class="side-link" id="projects-entry-btn" type="button"></button>
+        <button class="side-link" id="memory-entry-btn" type="button"></button>
+        <button class="side-link" id="prompts-entry-btn" type="button"></button>
+        <button class="side-link" id="shortcuts-entry-btn" type="button"></button>
+        <button class="side-link" id="settings-entry-btn" type="button"></button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==================== MAIN ==================== -->
+  <div class="main">
+    <header class="header">
+      <button class="icon-btn mobile-only" id="mobile-menu-btn" aria-label="Show conversations">
+        <span class="ico" data-icon="menu"></span>
+      </button>
+      <button class="icon-btn desktop-only" id="expand-btn" aria-label="Show sidebar" hidden>
+        <span class="ico" data-icon="panel"></span>
+      </button>
+
+      <div class="header-title-wrap">
+        <div class="header-title-row">
+          <span class="header-mode-badge" id="header-mode-badge">Software</span>
+          <div class="header-title" id="header-title">New conversation</div>
+        </div>
+        <div class="header-sub">
+          <span class="status-dot" id="header-status-dot"></span>
+          <span id="header-status-text">Simulation workspace</span>
+        </div>
+      </div>
+
+      <span class="header-badge" id="header-search-badge" hidden><span class="ico" data-icon="globe"></span>Web</span>
+      <span class="header-badge" id="header-image-badge" hidden><span class="ico" data-icon="image"></span>Images</span>
+      <span class="header-badge" id="header-thinking-badge" hidden><span class="ico" data-icon="brain"></span>Thinking</span>
+
+      <button class="model-pill" id="model-pill" title="Switch model (Ctrl+M)">
+        <span class="ico" data-icon="chip"></span>
+        <span id="model-pill-text">Gradient Simulation</span>
+        <span class="ico" data-icon="chevron"></span>
+      </button>
+
+      <div class="header-tools">
+        <button class="icon-btn" id="canvas-btn" aria-label="Toggle canvas" title="Canvas (Ctrl+Shift+E)">
+          <span class="ico" data-icon="canvas"></span>
+        </button>
+        <button class="icon-btn" id="pipeline-btn" aria-label="Pipelines" title="Pipelines (Ctrl+Shift+P)">
+          <span class="ico" data-icon="flow"></span>
+        </button>
+        <button class="icon-btn" id="compare-btn" aria-label="Compare models" title="Compare models (Ctrl+Shift+M)">
+          <span class="ico" data-icon="scale"></span>
+        </button>
+        <button class="icon-btn" id="find-btn" aria-label="Find in conversation" title="Find in chat (Ctrl+F)">
+          <span class="ico" data-icon="search"></span>
+        </button>
+        <button class="icon-btn" id="theme-btn" aria-label="Switch theme" title="Switch theme (Ctrl+J)">
+          <span class="ico" data-icon="moon"></span>
+        </button>
+        <button class="icon-btn" id="chat-menu-btn" aria-label="Conversation actions" title="Conversation actions">
+          <span class="ico" data-icon="dots"></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="find-bar hidden" id="find-bar" role="search">
+      <input type="text" id="find-input" placeholder="Find in conversation" aria-label="Find in conversation" />
+      <span class="find-count" id="find-count">0 / 0</span>
+      <button class="icon-btn sm" id="find-prev" aria-label="Previous match"><span class="ico" data-icon="up"></span></button>
+      <button class="icon-btn sm" id="find-next" aria-label="Next match"><span class="ico" data-icon="down"></span></button>
+      <button class="icon-btn sm" id="find-close" aria-label="Close find"><span class="ico" data-icon="x"></span></button>
+    </div>
+
+    <div class="chat-scroll" id="chat-scroll">
+      <div class="chat-inner" id="chat-inner"></div>
+      <button class="jump-btn" id="jump-btn"><span class="ico" data-icon="down"></span>Jump to latest</button>
+    </div>
+
+    <div class="composer-wrap" id="composer-wrap">
+      <div class="slash-menu hidden" id="slash-menu" role="listbox" aria-label="Commands"></div>
+      <div class="composer">
+        <div class="composer-toolbar">
+          <button class="toggle-chip" id="web-search-toggle" type="button" aria-pressed="false">
+            <span class="ico" data-icon="globe"></span>Web search
+          </button>
+          <button class="toggle-chip" id="image-search-toggle" type="button" aria-pressed="false">
+            <span class="ico" data-icon="image"></span>Image search
+          </button>
+          <button class="toggle-chip" id="image-gen-toggle" type="button" aria-pressed="false" title="Generate an image instead of a chat reply">
+            <span class="ico" data-icon="wand"></span>Create image
+          </button>
+          <button class="toggle-chip" id="thinking-toggle" type="button" aria-pressed="false" title="Show the model's reasoning (Ctrl+Shift+R)">
+            <span class="ico" data-icon="brain"></span>Thinking
+          </button>
+          <button class="toggle-chip" id="persona-chip" type="button" title="Change the assistant's instructions">
+            <span class="ico" data-icon="persona"></span><span id="persona-label">Default persona</span>
+          </button>
+          <span class="toolbar-spacer"></span>
+          <label class="temp-mini desktop-only" title="Higher values give more varied answers">
+            Creativity
+            <input type="range" id="temp-slider" min="0" max="2" step="0.1" value="0.7" aria-label="Creativity" />
+            <span id="temp-value">0.7</span>
+          </label>
+        </div>
+
+        <div class="attach-tray hidden" id="attach-tray" aria-live="polite"></div>
+
+        <div class="composer-box" id="composer-box">
+          <label for="composer-input" class="visually-hidden">Message</label>
+          <textarea id="composer-input" rows="1" placeholder="Message The Gradient…  Type / for commands" aria-label="Message"></textarea>
+          <div class="composer-tools">
+            <button class="icon-btn" id="attach-btn" aria-label="Attach files" title="Attach images or text files">
+              <span class="ico" data-icon="clip"></span>
+            </button>
+            <input type="file" id="attach-input" class="visually-hidden" multiple
+                   accept="image/*,.txt,.md,.json,.csv,.js,.ts,.py,.html,.css,.yml,.yaml,.xml,.log" />
+            <button class="icon-btn mic-btn" id="mic-btn" aria-label="Dictate message" title="Dictate (Ctrl+Shift+V)">
+              <span class="ico" data-icon="mic"></span>
+            </button>
+            <button class="send-btn" id="send-btn" aria-label="Send message" disabled>
+              <span class="ico" data-icon="send"></span>
+            </button>
+            <button class="stop-btn hidden" id="stop-btn" aria-label="Stop generating">
+              <span class="ico" data-icon="stop"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="composer-foot">
+          <span id="composer-hint">Enter sends · Shift+Enter adds a line</span>
+          <span class="spacer"></span>
+          <span id="context-note"></span>
+          <span id="char-count"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="gradient-mode-stage" class="gradient-mode-stage hidden" aria-live="polite"></div>
+
+  <!-- ==================== CANVAS / ARTIFACT WORKSPACE ==================== -->
+  <aside class="canvas-pane" id="canvas-pane" aria-label="Canvas workspace">
+    <div class="canvas-grip" id="canvas-grip" role="separator" aria-orientation="vertical" title="Drag to resize"></div>
+
+    <header class="canvas-head">
+      <span class="ico canvas-mark" data-icon="canvas"></span>
+      <div class="canvas-titles">
+        <div class="canvas-title" id="canvas-title">Canvas</div>
+        <div class="canvas-sub" id="canvas-sub"></div>
+      </div>
+      <div class="canvas-tabs" id="canvas-tabs" role="tablist"></div>
+      <button class="icon-btn sm hidden" id="canvas-newfile" aria-label="New file" title="Add a file to this project"><span class="ico" data-icon="plus"></span></button>
+      <button class="icon-btn sm hidden" id="canvas-export-pdf" aria-label="Export as PDF" title="Export as PDF"><span class="ico" data-icon="file"></span></button>
+      <button class="icon-btn sm hidden" id="canvas-export-docx" aria-label="Export as Word document" title="Export as Word (.docx)"><span class="ico" data-icon="edit"></span></button>
+      <button class="icon-btn sm hidden" id="canvas-export-pptx" aria-label="Export as slides" title="Export as slides (.pptx)"><span class="ico" data-icon="chart"></span></button>
+      <button class="icon-btn sm" id="canvas-copy" aria-label="Copy artifact" title="Copy"><span class="ico" data-icon="copy"></span></button>
+      <button class="icon-btn sm" id="canvas-download" aria-label="Download artifact" title="Save as a file"><span class="ico" data-icon="download"></span></button>
+      <button class="icon-btn sm" id="canvas-close" aria-label="Close canvas" title="Close"><span class="ico" data-icon="x"></span></button>
+    </header>
+
+    <div class="canvas-versions" id="canvas-versions">
+      <span class="ico" data-icon="history"></span>
+      <input type="range" id="canvas-range" min="0" max="0" value="0" aria-label="Version history" />
+      <span class="canvas-version-label" id="canvas-version-label"></span>
+      <button class="btn btn-sm" id="canvas-revert"><span class="ico" data-icon="undo"></span>Revert here</button>
+    </div>
+
+    <div class="canvas-body" id="canvas-body">
+      <div class="canvas-filetree hidden" id="canvas-filetree" aria-label="Project files"></div>
+      <div class="canvas-editor-col">
+        <textarea id="canvas-editor" class="canvas-editor" spellcheck="false" aria-label="Artifact source"></textarea>
+        <div class="canvas-diff hidden" id="canvas-diff" aria-label="Diff view"></div>
+        <div class="canvas-console hidden" id="canvas-console">
+          <div class="console-toolbar">
+            <button class="btn btn-primary btn-sm" id="console-run-btn"><span class="ico" data-icon="play"></span>Run</button>
+            <span class="exec-status" id="console-status">idle</span>
+            <span class="exec-time" id="console-time"></span>
+            <span class="exec-spacer"></span>
+            <button class="exec-btn" id="console-clear-btn">Clear</button>
+          </div>
+          <pre class="exec-body" id="console-out" tabindex="0"></pre>
+          <div class="exec-extra" id="console-extra"></div>
+        </div>
+        <div class="canvas-preview" id="canvas-preview"></div>
+      </div>
+    </div>
+
+    <div class="canvas-ask" id="canvas-ask">
+      <button class="sel-btn hidden" id="canvas-sel-btn"><span class="ico" data-icon="wand"></span><span>Edit selection</span></button>
+      <div class="ask-row">
+        <span class="ask-scope" id="canvas-ask-scope">Whole artifact</span>
+        <input type="text" id="canvas-ask-input" placeholder="Ask for a change — “refactor this function”, “summarise this section”" aria-label="Canvas instruction" />
+        <button class="btn btn-primary btn-sm" id="canvas-ask-send">Apply</button>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- ==================== OVERLAYS ==================== -->
+<div class="overlay" id="settings-overlay" role="dialog" aria-modal="true" aria-label="Settings"></div>
+<div class="overlay" id="confirm-overlay" role="dialog" aria-modal="true"></div>
+<div class="overlay palette-overlay" id="palette-overlay" role="dialog" aria-modal="true" aria-label="Command palette"></div>
+<div class="overlay" id="pro-overlay" role="dialog" aria-modal="true" aria-label="Workspace panel"></div>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="icon-btn lightbox-close" id="lightbox-close" aria-label="Close preview"><span class="ico" data-icon="x"></span></button>
+  <button class="lightbox-nav prev" id="lightbox-prev" aria-label="Previous image">‹</button>
+  <img id="lightbox-img" alt="" />
+  <button class="lightbox-nav next" id="lightbox-next" aria-label="Next image">›</button>
+  <div class="lightbox-cap" id="lightbox-cap"></div>
+</div>
+
+<div id="toast-host" aria-live="polite" aria-atomic="false"></div>
+<div id="sr-live" class="visually-hidden" aria-live="polite"></div>
+
+<script src="v32-startup.js"></script>
+<script src="app.js"></script>
+<script src="ai-hub.js"></script>
+<script src="v32-state.js"></script>
+<script src="v32-shell.js"></script>
+<script src="v32-quick-menu.js"></script>
+<script src="v32-resilience.js"></script>
+<script src="v26-provider.js"></script>
+<script src="v369-core.js"></script>
+<script src="studio-formats.js"></script>
+<script src="agent-orchestrator.js"></script>
+<script src="document-studio.js"></script>
+<script src="prompt-studio.js"></script>
+<script src="software-mode.js"></script>
+<script src="learn-mode.js"></script>
+<script src="imagine-mode.js"></script>
+<script src="canvas-mode.js"></script>
+<script src="documents-mode.js"></script>
+<script src="mode-router.js"></script>
+<script src="language-preview.js"></script>
+<script src="v369-tests.js"></script>
+<script src="v4-polish.js"></script>
+<script src="v41-world-class.js"></script>
+<script src="chat-ux.js"></script>
+<script src="preview-engine.js"></script>
+<script src="workflows.js"></script>
+<script src="model-picker.js"></script>
+<script src="canvas-fit.js"></script>
+<script src="finish-pass.js"></script>
+<script src="software-agent.js"></script>
+</body>
+</html>

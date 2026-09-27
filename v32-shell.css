@@ -1,0 +1,73 @@
+/* The Gradient 3.2 — unified product shell */
+:root{
+  --g32-bg:#0b0e13;
+  --g32-surface:#11151d;
+  --g32-surface-2:#171c25;
+  --g32-surface-3:#1d2330;
+  --g32-border:#252c39;
+  --g32-text:#eef2f8;
+  --g32-muted:#8d97a9;
+  --g32-faint:#657086;
+  --g32-accent:var(--accent,#7c8cff);
+  --g32-radius:16px;
+  --g32-header:58px;
+  --g32-content:1280px;
+}
+html[data-theme="light"]{
+  --g32-bg:#f5f7fa;
+  --g32-surface:#fff;
+  --g32-surface-2:#f0f3f7;
+  --g32-surface-3:#e8ecf2;
+  --g32-border:#dde2ea;
+  --g32-text:#161b25;
+  --g32-muted:#667085;
+  --g32-faint:#8a93a3;
+}
+html[data-theme="dark"] body{color-scheme:dark}
+html[data-theme="light"] body{color-scheme:light}
+.gradient-sidebar-resizer-v32{position:absolute;right:-6px;top:0;bottom:0;width:12px;z-index:120;cursor:col-resize;touch-action:none}
+.gradient-sidebar-resizer-v32::after{content:"";position:absolute;left:5px;top:16px;bottom:16px;width:2px;border-radius:3px;background:transparent;transition:.15s ease}
+.gradient-sidebar-resizer-v32:hover::after,.v32-resizing .gradient-sidebar-resizer-v32::after{background:var(--g32-accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--g32-accent) 12%,transparent)}
+.v32-resizing,.v32-resizing *{cursor:col-resize!important;user-select:none!important}
+.v32-hidden{display:none!important}
+.v32-workspace .header{background:color-mix(in srgb,var(--g32-surface) 93%,transparent);border-color:var(--g32-border)}
+.v32-workspace .header .header-tools .icon-btn{display:none}
+.v32-workspace .header .header-title{font-weight:700}
+.v32-workspace .header .header-sub{color:var(--g32-muted)}
+.v32-workspace .header .status-dot.live{background:var(--success)}
+.v32-mode-visible{display:flex!important;min-height:0!important;flex:1!important;overflow:hidden}
+.gradient-mode-stage.v32-mode-visible{display:flex!important;flex-direction:column;min-width:0;min-height:0;overflow:hidden;}
+.gradient-mode-stage{background:var(--g32-bg)!important;color:var(--g32-text)!important}
+.v26-mode-bar,.v26-mode-tabs{display:none!important}
+.v32-hidden-soft{visibility:hidden!important}
+.sidebar{background:var(--g32-surface);border-right-color:var(--g32-border)}
+.header{border-bottom-color:var(--g32-border)}
+.brand-mark{cursor:pointer}
+.mode-sidebar-nav{padding-top:8px}
+.mode-sidebar-label{padding:8px 10px 6px;color:var(--g32-faint);font-size:9px;font-weight:800;letter-spacing:.14em}
+.mode-sidebar-btn{position:relative;min-height:40px;border:1px solid transparent!important;border-radius:11px!important}
+.mode-sidebar-btn.active{background:color-mix(in srgb,var(--g32-accent) 11%,transparent)!important;border-color:color-mix(in srgb,var(--g32-accent) 18%,transparent)!important;color:var(--g32-text)!important}
+.mode-sidebar-btn.active::before{content:"";position:absolute;left:2px;top:9px;bottom:9px;width:3px;border-radius:3px;background:var(--g32-accent)}
+.mode-dot{width:22px;height:22px;display:grid;place-items:center;border-radius:7px;background:var(--g32-surface-2);color:var(--g32-muted);font-size:12px;font-weight:800}
+.mode-sidebar-btn.active .mode-dot{color:var(--g32-accent);background:color-mix(in srgb,var(--g32-accent) 12%,var(--g32-surface-2))}
+#sidebar{min-width:220px;max-width:520px}
+.main{min-width:0;min-height:0;background:var(--g32-bg)}
+.chat-scroll{background:var(--g32-bg)}
+.composer-wrap{background:linear-gradient(to bottom,transparent,var(--g32-bg) 14%)}
+.net-banner{z-index:200}
+@media(max-width:900px){.gradient-sidebar-resizer-v32{display:none}.sidebar{width:min(88vw,340px)!important;flex-basis:min(88vw,340px)!important}.mode-sidebar-label{display:none}.mode-sidebar-btn{min-height:44px}.v32-workspace .header{height:56px}.v32-mode-visible{overflow:auto!important}}
+
+/* Secondary tools live behind the Gradient mark, keeping the sidebar workspace-first. */
+.g32-brand-menu{position:fixed;left:14px;top:54px;width:min(320px,calc(100vw - 28px));padding:10px;background:var(--g32-surface);border:1px solid var(--g32-border);border-radius:15px;box-shadow:0 24px 70px rgba(0,0,0,.35);z-index:500;opacity:0;transform:translateY(-5px) scale(.98);pointer-events:none;transition:.14s ease}
+.g32-brand-menu.open{opacity:1;transform:none;pointer-events:auto}
+.g32-brand-menu-head{padding:7px 9px 10px;border-bottom:1px solid var(--g32-border);display:flex;justify-content:space-between;gap:10px;align-items:baseline}.g32-brand-menu-head b{font-size:13px}.g32-brand-menu-head span{font-size:10px;color:var(--g32-faint)}
+.g32-brand-menu-section{padding-top:6px}.g32-brand-menu button{width:100%;display:flex;gap:10px;align-items:flex-start;text-align:left;border:0;background:transparent;color:var(--g32-text);padding:9px;border-radius:10px;cursor:pointer}.g32-brand-menu button:hover{background:var(--g32-surface-2)}.g32-brand-menu button>span:first-child{width:22px;height:22px;display:grid;place-items:center;border-radius:7px;background:var(--g32-surface-2);color:var(--g32-accent);font-size:11px}.g32-brand-menu button b{display:block;font-size:12px}.g32-brand-menu button small{display:block;margin-top:2px;color:var(--g32-muted);font-size:10px;line-height:1.35}
+
+#g32-startup-guard{position:fixed;inset:0;z-index:2000;display:grid;place-items:center;background:rgba(7,9,13,.82);backdrop-filter:blur(10px);padding:24px;}
+.g32-startup-card{width:min(520px,100%);padding:28px;border:1px solid var(--g32-border,#303747);border-radius:22px;background:var(--g32-surface,#12151d);color:var(--g32-text,#eef2f7);box-shadow:0 30px 100px rgba(0,0,0,.45);text-align:center;}
+.g32-startup-mark{width:52px;height:52px;margin:0 auto 12px;border-radius:16px;display:grid;place-items:center;background:var(--accent-gradient);color:var(--on-accent);font-size:24px;}
+.g32-startup-card h2{margin:0 0 8px;font-size:22px;}
+.g32-startup-card p{margin:0;color:var(--g32-muted,#9aa4b8);line-height:1.6;}
+.g32-startup-actions{display:flex;justify-content:center;gap:10px;margin-top:20px;}
+.g32-startup-actions button{padding:10px 16px;border-radius:10px;border:1px solid var(--g32-border,#303747);background:var(--g32-surface-2,#191e27);color:inherit;font:inherit;cursor:pointer;}
+.g32-startup-actions button:first-child{background:var(--accent-gradient);color:var(--on-accent);border-color:transparent;}
